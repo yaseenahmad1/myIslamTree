@@ -48,5 +48,8 @@ class User(db.Model, UserMixin):
             'first_name': self.first_name,
             'last_name': self.last_name,
             'followers_count': len(self.followers),
-            'following_count': len(self.following)
+            'following_count': len(self.following),
+            'num_of_galleries': len(self.galleries),
+            'num_of_journals': len(self.journals),
+            'total_progress': len(self.galleries) + len(self.journals)  # for gold tree feature 
         }

@@ -33,5 +33,6 @@ class Journal(db.Model, TimeStampMixin):
             'verse': self.verse,
             'arabic_text': self.arabic_text,
             'english_text': self.english_text,
-            'description': self.description
+            'description': self.description,
+            'is_private': self.is_private
         }

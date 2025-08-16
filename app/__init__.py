@@ -10,6 +10,11 @@ from .api.auth_routes import auth_routes
 from .seeds import seed_commands
 from .config import Config
 
+from app.api.verse_routes import verse_routes # importing new blueprint
+from app.api.gallery_routes import gallery_routes 
+from app.api.journal_routes import journal_routes
+from app.api.comment_routes import comment_routes
+
 app = Flask(__name__, static_folder='../react-vite/dist', static_url_path='/')
 
 # Setup login manager
@@ -28,6 +33,10 @@ app.cli.add_command(seed_commands)
 app.config.from_object(Config)
 app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
+app.register_blueprint(verse_routes, url_prefix='/api/verse') # register the new route 
+app.register_blueprint(gallery_routes, url_prefix='/api/galleries')
+app.register_blueprint(journal_routes, url_prefix='/api/journals')
+app.register_blueprint(comment_routes, url_prefix='/api/comments')
 db.init_app(app)
 Migrate(app, db)
 

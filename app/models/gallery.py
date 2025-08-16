@@ -36,4 +36,6 @@ class Gallery(db.Model, TimeStampMixin):
             'description': self.description,
             'num_of_comments': len(self.comments),  # dynamically count comments
             'num_of_likes': len(self.likes),        # dynamically count likes
+            'num_of_journals': len(self.journals),
+            'journals': [journal.to_dict() for journal in self.journals] # this will include the object for the journal response with gallery response for a comprehensive gallery response 
         }
