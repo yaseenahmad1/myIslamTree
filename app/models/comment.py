@@ -10,7 +10,7 @@ class Comment(db.Model, TimeStampMixin):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
     gallery_id = db.Column(db.Integer,db.ForeignKey(add_prefix_for_prod("galleries.id")),nullable=False)
-    comment_body = db.Column(db.String(300), nullable=False)
+    comment_body = db.Column(db.Text, nullable=False)
 
     # Relationships
     user = db.relationship("User", back_populates="comments") # comments belong to user 

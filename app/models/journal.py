@@ -8,14 +8,14 @@ class Journal(db.Model, TimeStampMixin):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    image = db.Column(db.String(255), nullable=False)
-    title = db.Column(db.String(250), nullable=False)
+    image = db.Column(db.Text, nullable=False)
+    title = db.Column(db.Text, nullable=False)
     surah = db.Column(db.Integer, nullable=False) # selection required (whole point of the "reflection" part)
     verse = db.Column(db.Integer, nullable=False) # selection required (whole point of the "reflection" part)
-    arabic_text = db.Column(db.String, nullable=False) # when user selects a chapter and verse number from third party API, the Arabic text will be stored in this column
-    english_text = db.Column(db.String, nullable=False) # when user selects a chapter and verse number from third party API, the English text will be stored in this column
-    description = db.Column(db.String(), nullable=False) # no limit to characters and must be filled 
-    is_private = db.Column(db.Boolean(), nullable=True)
+    arabic_text = db.Column(db.Text, nullable=False) # when user selects a chapter and verse number from third party API, the Arabic text will be stored in this column
+    english_text = db.Column(db.Text, nullable=False) # when user selects a chapter and verse number from third party API, the English text will be stored in this column
+    description = db.Column(db.Text, nullable=False) # no limit to characters and must be filled 
+    is_private = db.Column(db.Boolean(), nullable=False, default=False)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id"))) # not sure if this is a column built in or as a relationship (imaginary column)
     gallery_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("galleries.id")))
 

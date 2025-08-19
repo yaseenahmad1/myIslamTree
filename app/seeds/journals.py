@@ -8,7 +8,7 @@ def seed_journals():
         # --------------------------
         # Gallery 1
         Journal(
-            image="https://example.com/journal1.jpg",
+            image="https://images.unsplash.com/photo-1673716277813-579a3709ecd8?q=80&w=1476&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             title="Reflection 1",
             surah=2,
             verse=2,
@@ -20,7 +20,7 @@ def seed_journals():
             gallery_id=1
         ),
         Journal(
-            image="https://example.com/journal2.jpg",
+            image="https://images.unsplash.com/photo-1641989210602-7c1efb2ff66c?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWVjY2ElMjBrYWFiYXxlbnwwfDJ8MHx8fDA%3D",
             title="Reflection 2",
             surah=3,
             verse=19,
@@ -33,7 +33,7 @@ def seed_journals():
         ),
         # Gallery 2
         Journal(
-            image="https://example.com/journal3.jpg",
+            image="https://images.unsplash.com/photo-1668605238342-b5238f8569b0?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             title="Reflection 3",
             surah=5,
             verse=48,
@@ -45,7 +45,7 @@ def seed_journals():
             gallery_id=2
         ),
         Journal(
-            image="https://example.com/journal4.jpg",
+            image="https://images.unsplash.com/photo-1718115575227-50aed16c2f8f?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             title="Reflection 4",
             surah=6,
             verse=141,
@@ -58,7 +58,7 @@ def seed_journals():
         ),
         # Gallery 3
         Journal(
-            image="https://example.com/journal5.jpg",
+            image="https://images.unsplash.com/photo-1711346105258-bbb9136592d7?q=80&w=1481&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             title="Reflection 5",
             surah=7,
             verse=31,
@@ -70,7 +70,7 @@ def seed_journals():
             gallery_id=3
         ),
         Journal(
-            image="https://example.com/journal6.jpg",
+            image="https://images.unsplash.com/photo-1674847749596-04f99b124e2d?q=80&w=1526&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             title="Reflection 6",
             surah=10,
             verse=61,
@@ -83,7 +83,7 @@ def seed_journals():
         ),
         # Gallery 4
         Journal(
-            image="https://example.com/journal7.jpg",
+            image="https://images.unsplash.com/photo-1553468294-61086700acaa?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZGF0ZSUyMHBhbG0lMjB0cmVlfGVufDB8MnwwfHx8MA%3D%3D",
             title="Reflection 7",
             surah=12,
             verse=111,
@@ -95,7 +95,7 @@ def seed_journals():
             gallery_id=4
         ),
         Journal(
-            image="https://example.com/journal8.jpg",
+            image="https://images.unsplash.com/photo-1614573058363-92c17bf4b59b?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             title="Reflection 8",
             surah=13,
             verse=28,
@@ -108,7 +108,7 @@ def seed_journals():
         ),
         # Gallery 5
         Journal(
-            image="https://example.com/journal9.jpg",
+            image="https://images.unsplash.com/photo-1664347201501-824d2bc04d88?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             title="Reflection 9",
             surah=16,
             verse=97,
@@ -120,7 +120,7 @@ def seed_journals():
             gallery_id=5
         ),
         Journal(
-            image="https://example.com/journal10.jpg",
+            image="https://images.unsplash.com/photo-1579722139701-f9222eded3b6?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             title="Reflection 10",
             surah=18,
             verse=10,
@@ -137,7 +137,7 @@ def seed_journals():
         # --------------------------
         # Gallery 6
         Journal(
-            image="https://example.com/journal11.jpg",
+            image="https://images.unsplash.com/photo-1503939313441-d753b6c7eb91?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             title="Reflection 11",
             surah=21,
             verse=30,
@@ -149,7 +149,7 @@ def seed_journals():
             gallery_id=6
         ),
         Journal(
-            image="https://example.com/journal12.jpg",
+            image="https://images.unsplash.com/photo-1615378536579-61c7d173e8a9?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             title="Reflection 12",
             surah=23,
             verse=12,

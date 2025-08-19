@@ -8,13 +8,13 @@ class Gallery(db.Model, TimeStampMixin):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    image = db.Column(db.String(255), nullable=False)
-    title = db.Column(db.String(250), nullable=False)
+    image = db.Column(db.Text, nullable=False)
+    title = db.Column(db.Text, nullable=False)
     surah = db.Column(db.Integer, nullable=True) # they don't need to use Surah number in the gallery form but will in the journal form 
     verse = db.Column(db.Integer, nullable=True) # they don't need to use Surah number in the gallery form but will in the journal form 
-    arabic_text = db.Column(db.String, nullable=True) # if user selects a chapter and verse number from third party API, the Arabic text will be stored in this column
-    english_text = db.Column(db.String, nullable=True) # if user selects a chapter and verse number from third party API, the English text will be stored in this column
-    description = db.Column(db.String(), nullable=False) # no limit to characters and must be filled 
+    arabic_text = db.Column(db.Text, nullable=True) # if user selects a chapter and verse number from third party API, the Arabic text will be stored in this column
+    english_text = db.Column(db.Text, nullable=True) # if user selects a chapter and verse number from third party API, the English text will be stored in this column
+    description = db.Column(db.Text, nullable=False) # no limit to characters and must be filled 
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id"))) # not sure if this is a column built in or as a relationship (imaginary column)
 
     # Relationships
