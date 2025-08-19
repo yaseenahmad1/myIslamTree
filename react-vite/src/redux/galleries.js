@@ -28,7 +28,7 @@ export const thunkGetGallery = (galleryId) => async(dispatch) => { // we start o
 
         if (response.ok) { // if response is okay ...
             const data = await response.json(); // now that response is given back to us as a json object and we store it inside our data variable 
-            dispatch(getGallery(data)) // then we dispatch our data by the action creator function which will retrieve that like a waiter bringing the food to the table 
+            dispatch(getGallery(data)); // then we dispatch our data by the action creator function which will retrieve that like a waiter bringing the food to the table 
             return data; // return so other parts of the app can use it immediately (good for the gold tree feature)
         } else { 
             // errors that come from the server 
