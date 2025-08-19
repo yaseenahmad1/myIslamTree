@@ -8,6 +8,7 @@ gallery_routes = Blueprint("gallery_routes", __name__)
 
 # 1A. GET a single gallery 
 @gallery_routes.route("/<int:galleryId>", methods=['GET'])
+@login_required
 def get_single_gallery(galleryId):
     gallery = Gallery.query.get(galleryId)
 
@@ -26,7 +27,7 @@ def get_galleries():
     if not galleries: # if the current user does not have any galleries made yet 
         return { "message": "You have no galleries at the moment"}, 404
 
-    return ([gallery.to_dict() for gallery in galleries]), 200 
+    return { "galleries": [gallery.to_dict() for gallery in galleries]}, 200 
 
 # 2. GET all galleries of a user 
 @gallery_routes.route('/user/<int:userId>', methods=['GET']) # full api route : '/api/galleries/user/<int:userId>'
@@ -43,7 +44,7 @@ def get_user_galleries(userId): # we are going to pass in our userId from our ap
     if not galleries:
         return { "message": " User has no galleries" }, 404
     
-    return [gallery.to_dict() for gallery in galleries], 200 # otherwise return successful response which is an array of gallery objects the user owns 
+    return { "galleries": [gallery.to_dict() for gallery in galleries] }, 200 # otherwise return successful response which is an array of gallery objects the user owns 
 
 
 # 3. GET all public journals for a given gallery (their own journal entries)
@@ -64,7 +65,7 @@ def get_gallery_journals(galleryId):
         # other users can ONLY see public journals
         journals = (Journal.query.filter_by(gallery_id=galleryId, is_private=False).order_by(Journal.created_at.asc()).all())
     
-    return ([journal.to_dict() for journal in journals]), 200 # return the object of information that we set up in our models for each journal in the list of journals that is provided
+    return { "journals": [journal.to_dict() for journal in journals] }, 200 # return the object of information that we set up in our models for each journal in the list of journals that is provided
 
 # 4. POST a new gallery for a current_user
 @gallery_routes.route('/', methods=['POST'])
@@ -251,7 +252,7 @@ def all_comments(galleryId): # we begin a function that will retrieve all commen
     # Since Flask does not know how to turn Python objects into JSON on its own
     # We use jsonify to convert the python into this universal readable object aka JSON response
 
-    return ({'comments': [comment.to_dict() for comment in comments]}), 200 
+    return {'comments': [comment.to_dict() for comment in comments]}, 200 
     # what this now does is it gives us a list (via to_dict) of comments under the key "comments": {{comment1}, {comment2}, {etc}}
 
 
@@ -265,7 +266,7 @@ def create_comment(galleryId): # defining our function name which requires a gal
     """
     Create a comment on a particular gallery
     """
-    # first check to see if the journal we want to comment on exists or if the gallery_id for that journal does not equal the galleryId in our route
+    # first check to see if the gallery we want to comment on exists 
     gallery = Gallery.query.get(galleryId)
     if not gallery:
         return { "error": "Gallery not found"}, 404
@@ -296,7 +297,7 @@ def create_comment(galleryId): # defining our function name which requires a gal
 @gallery_routes.route('/<int:galleryId>/likes', methods=['GET']) # /api/galleries/<int:galleryId>/likes
 def get_likes(galleryId):
     likes = Like.query.filter_by(gallery_id=galleryId).join(User).all()
-    return ({'likes': [like.to_dict() for like in likes]}) # give all information from our dictionary in each like for all likes 
+    return {'likes': [like.to_dict() for like in likes]}, 200 # give all information from our dictionary in each like for all likes 
 
 # -------------------------- POST A LIKE FOR A GALLERY -----------------------------#
 @gallery_routes.route('/<int:galleryId>/likes', methods=['POST'])
@@ -343,4 +344,4 @@ def unlike_gallery(galleryId):
         return {"error": "Like does not exist"}, 404
     db.session.delete(like)
     db.session.commit()
-    return {"message": "Like removed"}
+    return {"message": "Like removed"} , 200 
