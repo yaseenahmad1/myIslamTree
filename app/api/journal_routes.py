@@ -23,6 +23,20 @@ def get_private_journals():   # we create a function called 'get_private_journal
         "private_journals": [journal.to_dict() for journal in private_journals]
     }, 200  
 
+# 2. GET a single journal by its id 
+@journal_routes.route('/<int:journalId>', methods=['GET']) # our api endpoint for this will be /api/journals/journalId
+@login_required # log in is required
+def get_journal(journalId): # we pass in that id as an argument to run this fetch function 
+    journal = Journal.query.get(journalId) # query for the id in our database 
+
+    if not journal: # if it does not exist send a 404 
+        return { "error": f"Journal with id {journalId} was not found" }, 404
+    
+    if journal.is_private and journal.user_id != current_user.id: # if it is a private journal and the journal does not belong to owner 
+        return { "error": "Unauthorized to view this journal" }, 403
+    
+    return journal.to_dict(), 200 # return that journal id to show on a page 
+
 
 # 3A. PUT  /api/journals/:journalId (for this, let's say I have a list of journals in a speical div set up and display likes commments icons to the side of the div can i have a lock icon that taps into the is_private column for a quick change in the backend when using a thunk?)
 @journal_routes.route('/<int:journalId>', methods=['PUT'])
