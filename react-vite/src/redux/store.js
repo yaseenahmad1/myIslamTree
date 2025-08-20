@@ -6,9 +6,19 @@ import {
 } from "redux";
 import thunk from "redux-thunk";
 import sessionReducer from "./session";
+import galleriesReducer from "./galleries";
+import journalsReducer from "./journals";
+import verseReducer from "./verse";
+import commentsReducer from "./comments";
+import likesReducer from "./likes";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
+  galleries: galleriesReducer, 
+  journals: journalsReducer,
+  verse: verseReducer,
+  comments: commentsReducer,
+  likes: likesReducer,
 });
 
 let enhancer;

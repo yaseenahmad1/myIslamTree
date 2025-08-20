@@ -1,0 +1,95 @@
+/* CreateGalleryForm.css */
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value="amiri"]::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value="amiri"]::before {
+  content: "Amiri";
+  font-family: 'Amiri', serif;
+}
+
+.ql-font-amiri {
+  font-family: 'Amiri', serif;
+}
+
+.ql-font-sans-serif {
+  font-family: sans-serif;
+}
+
+.ql-font-serif {
+  font-family: serif;
+}
+
+.ql-font-monospace {
+  font-family: monospace;
+}
+
+.ql-font-times-new-roman {
+  font-family: "Times New Roman", Times, serif;
+}
+
+
+.create-gallery-form {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 25px 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 20px rgba(0,0,0,0.2);
+  font-family: 'Arial', sans-serif;
+}
+
+.create-gallery-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.create-gallery-form label {
+  display: block;
+  margin-bottom: 15px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.create-gallery-form input,
+.create-gallery-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-family: 'Arial', sans-serif;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.create-gallery-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.create-gallery-form .error {
+  color: red;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.create-gallery-form button {
+  display: block;
+  width: 100%;
+  padding: 12px 0;
+  margin-top: 20px;
+  background-color: rgb(0, 200, 100);
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.create-gallery-form button:hover {
+  background-color: rgb(0, 150, 75);
+}
+
+

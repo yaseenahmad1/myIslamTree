@@ -97,10 +97,10 @@ export const thunkCreateGallery = (gallery) => async(dispatch) => {
             return data; 
         } else {
             const error = await response.json(); 
-            return { error: [ error.errors || "Unable to create gallery"]}
+            return { errors: [ error.errors || "Unable to create gallery"]}
         }
     } catch (err) {
-        console.error("Failed to create galleries:", err); 
+        console.error("Failed to create gallery:", err); 
         return { error: ["Unable to create gallery"]};
     }
 }
@@ -190,6 +190,7 @@ export default function galleriesReducer(state = initialState, action) {// start
 
         case CREATE_GALLERY: // the action coming in, so we run the code below 
             newState.currentUserGalleries[action.payload.id] = action.payload; // newState.currentUserGalleries is the part of our Redux state that keeps all galleries (action.payload is the new gallery object and the .id is the unique ID of that newly created gallery)
+            newState.singleGallery = action.payload;
             return newState; // after the new post is added return all galleries of the user now 
 
         case EDIT_GALLERY:

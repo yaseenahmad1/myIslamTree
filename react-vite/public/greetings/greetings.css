@@ -1,4 +1,5 @@
 /* === Base styles === */
+
 body {
     margin: 0;
     padding: 0;
@@ -20,7 +21,7 @@ body {
 
 .tree-logo {
     position: fixed;      /* fix position independently */
-    left: 100px;               /* 5px from left of screen */
+    left: 150px;               /* 5px from left of screen */
     width: 800px;            /* adjust size */
     height: 800px;
     margin-bottom: 50px;
@@ -39,9 +40,7 @@ body {
     text-align: right;
 }
 
-.quote-container p {
-    margin: 0; 
-}
+
 
 .greeting-container {
     margin-top: 75px;

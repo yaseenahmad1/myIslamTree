@@ -1,0 +1,53 @@
+/* ProfileButton.css */
+.profile-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    font-family: 'Amiri', serif; /* same as other dropdown */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+  }
+
+  .profile-initial {
+
+    font-size: 25px;
+    margin-top: 3px;
+    margin-left: 2px;
+ 
+  }
+  
+  .profile-dropdown {
+    position: absolute;
+    top: 50px; /* below button */
+    right: 0;
+    background-color: white;
+    border-radius: 8px;
+    padding: 10px;
+    list-style: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    font-family: 'Amiri', serif;
+    z-index: 1000;
+  }
+  
+  .profile-dropdown li {
+    margin: 5px 0;
+  }
+  
+  .profile-dropdown button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: black;
+    font-weight: bold;
+  }
+  
+  .profile-dropdown button:hover {
+    color: rgb(64,184,255);
+  }
+  

@@ -1,0 +1,80 @@
+.current-user-galleries {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .current-user-galleries h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+  }
+  
+  /* Galleries List */
+  .galleries-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+  
+  .gallery-card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 15px;
+    text-decoration: none;
+    color: #333;
+    transition: transform 0.2s, box-shadow 0.2s;
+    background-color: #fafafa;
+  }
+  
+  .gallery-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  .gallery-title {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .gallery-description {
+    font-size: 16px;
+    color: #666;
+  }
+  
+  /* Empty State */
+  .no-galleries {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .no-galleries h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #555;
+  }
+  
+  .no-galleries p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #777;
+  }
+  
+  .no-galleries button {
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background-color: rgb(0, 200, 100);
+    color: white;
+    transition: background-color 0.2s;
+  }
+  
+  .no-galleries button:hover {
+    background-color: rgb(0, 150, 75);
+  }
+  
+  

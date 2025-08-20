@@ -1,24 +1,31 @@
 #modal {
   position: fixed;
   top: 0;
-  right: 0;
   left: 0;
-  bottom: 0;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1000; /* make sure it's on top of everything */
 }
 
 #modal-background {
   position: fixed;
   top: 0;
-  right: 0;
   left: 0;
-  bottom: 0;
+  width: 100vw;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.7);
+  cursor: pointer; /* shows user they can click out */
 }
 
 #modal-content {
-  position: absolute;
-  background-color:white;
+  position: relative;
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 500px;
+  width: 100%;
+  z-index: 1001; /* sits above background */
 }
