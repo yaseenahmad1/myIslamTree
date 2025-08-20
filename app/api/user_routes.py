@@ -47,6 +47,7 @@ def follow_user(user_id):
     db.session.commit()
 
     return jsonify({
+        "id": new_follow.id,
         "message": "You are now following this user!",
         "follower_id": current_user.id,
         "following_id": user_id
