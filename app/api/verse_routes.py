@@ -3,7 +3,7 @@ from app.utils.quran_api import fetch_verse_text
 
 verse_routes = Blueprint("verse_routes", __name__)
 
-@verse_routes.route("/api/verse", methods=['GET']) # we create an API route for fetching our verse 
+@verse_routes.route("", methods=['GET']) # we create an API route for fetching our verse 
 def get_verse(): 
     surah = request.args.get("surah", type=int)
     verse = request.args.get("verse", type=int)
