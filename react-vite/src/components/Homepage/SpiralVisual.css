@@ -1,0 +1,124 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, #000 70%, #111 100%);
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+  }
+
+  .spiral-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('/space.jpg');
+    background-position: center;
+    background-attachment: fixed;
+    z-index: -1; /* pushes behind everything */
+  }
+  
+  .outer-space {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: url('dfd8188b-e057-485b-a9ca-4e7255e2edaa.jpg') center;
+    z-index: 0;
+  }
+  
+  /* .black-circle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 150px;
+      height: 150px;
+      background: rgba(0, 0, 0, 0.9); /* semi-transparent */
+      /* border-radius: 50%; */
+      /* transform: translate(-50%, -50%);
+      z-index: 9;
+  } */ */
+  
+  .inner-circle {
+    /* position: absolute; */
+    top: 50%;
+    left: 50%;
+    width: 230px; /* smaller */
+    height: 230px;
+    background: rgba(0, 0, 0, 0.8);  /* solid */
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10; /* above outer circle but below text */
+  }
+  
+  .main-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 260px;
+    font-weight: bold;
+    z-index: 1;
+    pointer-events: none;
+    color: white; /* base text color */
+    text-shadow:
+      0 0 5px white,
+      0 0 10px white,
+      0 0 20px white,
+      0 0 30px white,
+      0 0 40px white,
+      0 0 50px white;
+  } 
+  
+  .main-layer-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 280px;
+    font-weight: bold;
+    z-index: 1;
+    pointer-events: none;
+    color: white;
+    animation: pulseGlow 6s infinite;
+  }
+  
+  .spiral-svg {
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .rotating-arm {
+    transform-origin: 50% 50%;
+    animation: spin 60s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(-360deg); }
+  }
+  
+  @keyframes pulseGlow {
+    0%, 100% {
+      text-shadow:
+        0 0 5px gold,
+        0 0 10px gold,
+        0 0 20px gold;
+    }
+    50% {
+      text-shadow:
+        0 0 10px gold,
+        0 0 20px gold,
+        0 0 30px orange;
+    }
+  }
+  
+  text {
+    font-size: 15px;
+    fill: white;
+    font-family: sans-serif;
+  }
+  

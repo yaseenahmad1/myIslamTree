@@ -1,0 +1,38 @@
+/* TextEditor.css */
+
+/* Keep toolbar on one row */
+.ql-toolbar.ql-snow {
+    display: flex;
+    align-items: center;   /* vertical centering */
+    flex-wrap: nowrap;     /* prevent wrapping */
+    gap: 6px;              /* consistent spacing */
+    border-radius: 6px;
+    padding: 4px 8px;
+  }
+  
+  /* Make all buttons the same height */
+  .ql-toolbar .ql-formats {
+    display: flex;
+    align-items: center;
+    margin: 0;   /* remove weird spacing */
+  }
+  
+  /* Normalize button & select height */
+  .ql-toolbar button, 
+  .ql-toolbar select {
+    height: 28px;
+    min-width: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    border-radius: 4px;
+  }
+  
+  /* Optional hover effect */
+  .ql-toolbar button:hover,
+  .ql-toolbar select:hover {
+    background: #f0f0f0;
+  }
+  
+  

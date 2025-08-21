@@ -63,6 +63,17 @@ export const thunkLogout = () => async (dispatch) => {
   dispatch(removeUser());
 };
 
+// Thunk to refresh the current logged-in user
+export const getCurrentUser = () => async (dispatch) => {
+  const response = await fetch("/api/auth/"); // same route your thunkAuthenticate uses
+  if (response.ok) {
+    const data = await response.json();
+    if (!data.errors) {
+      dispatch(setUser(data)); // update Redux store with latest user object
+    }
+  }
+};
+
 const initialState = { user: null };
 
 function sessionReducer(state = initialState, action) {

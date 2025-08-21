@@ -1,4 +1,5 @@
 import { csrfFetch } from "./csrf";
+import { getCurrentUser } from "./session";
 
 // -------------------------- ACTION TYPES --------------------------------------
 
@@ -44,12 +45,12 @@ export const thunkGetGallery = (galleryId) => async(dispatch) => { // we start o
 export const thunkGetCurrentUserGalleries = () => async(dispatch) => { 
 
     try { 
-        const response = await csrfFetch(`/api/galleries`); 
+        const response = await csrfFetch(`/api/galleries/`); 
 
         if (response.ok) { 
             const data = await response.json(); 
-            dispatch(getCurrentUserGalleries(data)); 
-            return data; 
+            dispatch(getCurrentUserGalleries(data.galleries)); 
+            return data.galleries; 
         } else { 
             // errors that come from the server 
             const error = await response.json(); 
@@ -85,7 +86,7 @@ export const thunkGetUserGalleries = (userId) => async(dispatch) => { // we pass
 export const thunkCreateGallery = (gallery) => async(dispatch) => {
 
     try { 
-        const response = await csrfFetch(`/api/galleries`, {
+        const response = await csrfFetch(`/api/galleries/`, {
             method: 'POST', 
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(gallery)
@@ -94,6 +95,7 @@ export const thunkCreateGallery = (gallery) => async(dispatch) => {
         if (response.ok) {
             const data = await response.json(); 
             dispatch(createGallery(data));
+            dispatch(getCurrentUser()); // adding this to reflect tree change 
             return data; 
         } else {
             const error = await response.json(); 
@@ -139,6 +141,7 @@ export const thunkDeleteGallery = (galleryId) => async(dispatch) => {
         if (response.ok) {
             const data = await response.json(); 
             dispatch(deleteGallery(galleryId)); 
+            dispatch(getCurrentUser());
             return data; 
         } else { 
             const error = await response.json(); 

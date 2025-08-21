@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import "./CreateGalleryForm.css";
+import "./CreateJournalForm.css";
 import SurahVerseSelector from "../SurahVerseSelector/SurahVerseSelector";
-import { thunkCreateGallery } from "../../redux/galleries";
+import { thunkCreateJournal } from "../../redux/journals";
 import { thunkFetchVerse, clearVerse } from "../../redux/verse";
 
-export default function CreateGalleryForm() {
+export default function CreateJournalForm() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { galleryId } = useParams();
+
   const currentUser = useSelector((state) => state.session.user);
   const verseState = useSelector((state) => state.verse);
 
@@ -17,13 +19,14 @@ export default function CreateGalleryForm() {
   const [surah, setSurah] = useState(null);
   const [verse, setVerse] = useState(null);
   const [description, setDescription] = useState("");
+  const [isPrivate, setIsPrivate] = useState(false);
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
     return () => dispatch(clearVerse());
   }, [dispatch]);
 
-  if (!currentUser) return <p>Please log in to create a gallery.</p>;
+  if (!currentUser) return <p>Please log in to create a journal entry.</p>;
 
   const handleVerseChange = (newSurah, newVerse) => {
     setSurah(newSurah);
@@ -47,31 +50,33 @@ export default function CreateGalleryForm() {
     setErrors(newErrors);
     if (Object.keys(newErrors).length > 0) return;
 
-    const newGallery = {
+    const newJournal = {
       title,
       image,
-      surah: surah || null,
-      verse: verse || null,
-      arabic_text: verseState.arabic_text || null,
-      english_text: verseState.english_text || null,
+      surah,
+      verse,
+      arabic_text: verseState.arabic_text || "",
+      english_text: verseState.english_text || "",
       description,
+      is_private: isPrivate,
+      gallery_id: galleryId,
     };
 
     try {
-      const createdGallery = await dispatch(thunkCreateGallery(newGallery));
-      if (createdGallery && createdGallery.id) {
-        navigate(`/galleries/${createdGallery.id}`);
-      } else if (createdGallery.errors) {
-        setErrors(createdGallery.errors);
+      const createdJournal = await dispatch(thunkCreateJournal(galleryId, newJournal));
+      if (createdJournal && createdJournal.id) {
+        navigate(`/galleries/${galleryId}`);
+      } else if (createdJournal.errors) {
+        setErrors(createdJournal.errors);
       }
     } catch (err) {
-      console.error("Unexpected error creating gallery:", err);
+      console.error("Unexpected error creating journal:", err);
     }
   };
 
   return (
-    <form className="create-gallery-form" onSubmit={handleSubmit}>
-      <h2>Create a New Gallery</h2>
+    <form className="create-journal-form" onSubmit={handleSubmit}>
+      <h2>Create a Journal Entry</h2>
 
       {/* Title */}
       <label>
@@ -80,7 +85,7 @@ export default function CreateGalleryForm() {
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          placeholder="Enter gallery title..."
+          placeholder="Enter journal title..."
         />
         {errors.title && <div className="error">{errors.title}</div>}
       </label>
@@ -99,52 +104,51 @@ export default function CreateGalleryForm() {
 
       {/* Surah & Verse Selector */}
       <label>
-          Surah & Verse
-      <SurahVerseSelector
+        Surah & Verse
+        <SurahVerseSelector
           surah={surah}
           verse={verse}
           onChange={handleVerseChange}
-      />
-      {errors.surahVerse && (
-        <div className="error">{errors.surahVerse}</div>
-      )}
+        />
+        {errors.surahVerse && <div className="error">{errors.surahVerse}</div>}
       </label>
 
       {/* Verse Text Display */}
       {verseState.arabic_text && (
         <div className="verse-display-arabic">
-          <strong></strong>
           <p>{verseState.arabic_text}</p>
         </div>
       )}
-
       {verseState.english_text && (
         <div className="verse-display-english">
-          <strong></strong>
           <p>{verseState.english_text}</p>
         </div>
       )}
 
-      {/* Description*/}
+      {/* Description */}
       <label>
         Description
         <textarea
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          placeholder="Enter gallery description..."
+          placeholder="Write your reflection..."
           rows={6}
           style={{ width: "100%", resize: "vertical" }}
         />
-        {errors.description && (
-          <div className="error">{errors.description}</div>
-        )}
+        {errors.description && <div className="error">{errors.description}</div>}
       </label>
 
-      <button type="submit">Create</button>
+      {/* Private toggle */}
+      <label style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+        <input
+          type="checkbox"
+          checked={isPrivate}
+          onChange={(e) => setIsPrivate(e.target.checked)}
+        />
+        Make this journal private
+      </label>
+
+      <button type="submit">Create Journal</button>
     </form>
   );
 }
-
-
-
-

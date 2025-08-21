@@ -1,39 +1,23 @@
-/* CreateGalleryForm.css */
-.ql-snow .ql-picker.ql-font .ql-picker-label[data-value="amiri"]::before,
-.ql-snow .ql-picker.ql-font .ql-picker-item[data-value="amiri"]::before {
-  content: "Amiri";
-  font-family: 'Amiri', serif;
+@font-face {
+  font-family: 'Scheherazade';
+  src: url('/fonts/ScheherazadeRegular.ttf') format('truetype');
 }
 
-.ql-font-amiri {
-  font-family: 'Amiri', serif;
-}
+/* .ql-font-Amiri { font-family: 'Amiri', serif; }
+.ql-font-Arial { font-family: 'Arial', sans-serif; }
+.ql-font-Times-New-Roman { font-family: 'Times New Roman', serif; }
+.ql-font-Georgia { font-family: 'Georgia', serif; }
+.ql-font-Courier-New { font-family: 'Courier New', monospace; } */
 
-.ql-font-sans-serif {
-  font-family: sans-serif;
-}
-
-.ql-font-serif {
-  font-family: serif;
-}
-
-.ql-font-monospace {
-  font-family: monospace;
-}
-
-.ql-font-times-new-roman {
-  font-family: "Times New Roman", Times, serif;
-}
-
-
+/* Form styling */
 .create-gallery-form {
-  max-width: 500px;
+  max-width: 700px; /* wider for rich text */
   margin: 50px auto;
   padding: 25px 30px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0px 4px 20px rgba(0,0,0,0.2);
-  font-family: 'Arial', sans-serif;
+  font-family: 'Amiri', sans-serif; /* change to sans-serif */
 }
 
 .create-gallery-form h2 {
@@ -51,24 +35,41 @@
 }
 
 .create-gallery-form input,
-.create-gallery-form textarea {
+.create-gallery-form textarea{
   width: 100%;
   padding: 10px 12px;
   margin-top: 5px;
   border-radius: 6px;
   border: 1px solid #ccc;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Amiri', sans-serif; /* all text in sans-serif */
   font-size: 14px;
   box-sizing: border-box;
 }
 
-.create-gallery-form textarea {
-  resize: vertical;
-  min-height: 80px;
+.create-gallery-form {
+  min-height: 120px;
+}
+
+.verse-display-arabic{
+  font-family: 'Scheherazade', serif;
+  font-size: 20px;
+  text-align: right;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  direction: rtl;
+  color: #111;
+}
+
+.verse-display-english {
+  font-family: 'Amiri', sans-serif;
+  font-size: 16px;
+  text-align: left;
+  line-height: 1.5;
+  color: #333;
 }
 
 .create-gallery-form .error {
-  color: red;
+  color: rgb(133, 5, 5);
   font-size: 13px;
   margin-top: 5px;
 }
@@ -77,7 +78,7 @@
   display: block;
   width: 100%;
   padding: 12px 0;
-  margin-top: 20px;
+  margin-top: 0px;
   background-color: rgb(0, 200, 100);
   color: white;
   font-weight: bold;
@@ -91,5 +92,48 @@
 .create-gallery-form button:hover {
   background-color: rgb(0, 150, 75);
 }
+
+.quill-editor .ql-editor {
+  font-family: 'Amiri', serif;  /* sets all typed text to Amiri */
+  font-size: 14px;              /* adjust as needed */
+  color: black;                 /* ensures text is visible */
+  background-color: #fff;       /* optional, white background */
+  min-height: 120px;            /* optional, ensures enough height */
+  line-height: 1.5;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #000; /* make sure it’s not white on white */
+}
+input {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+}
+
+.error {
+  color: rgb(133, 5, 5);
+  margin-top: 4px;
+  font-size: 0.875rem;
+}
+
+.surah-verse-errors {
+  display: flex;
+  gap: 1rem; /* space between messages */
+  margin-top: 0.25rem; /* optional spacing from selector */
+}
+
+.surah-verse-errors .error {
+  color: rgb(133, 5, 5);
+  font-size: 0.9rem;
+}
+
+
+
+
 
 

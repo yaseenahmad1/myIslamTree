@@ -7,6 +7,7 @@ import SignupFormModal from "../SignupFormModal/SignupFormModal";
 import AuthPromptModal from "../AuthPromptModal/AuthPromptModal"
 import ProfileButton from "./ProfileButton";
 import "./Navigation.css";
+import TreeStatus from "../ProgressTree/ProgressTree"
 
 function Navigation() {
   const currentUser = useSelector((state) => state.session.user);
@@ -45,19 +46,42 @@ function Navigation() {
         onMouseLeave={() => setShowTreeDropdown(false)}
       >
        
-          <img src="/tree.svg" alt="Tree Logo" className="tree-logo" />
+         {/* Small nav icon */}
+      {currentUser ? (
+        <TreeStatus totalProgress={currentUser.total_progress} />  // small by default
+      ) : (
+        <img src="/tree.svg" alt="Tree Logo" className="tree-logo" />
+      )}
      
 
         {showTreeDropdown && (
           <div className="tree-dropdown">
-            <img src="/tree.svg" alt="Progress Tree" className="big-tree" 
-            onClick={() => {
-              navigate("/home");
-              setShowTreeDropdown(false); 
-            }}
-            style={{ cursor: "pointer" }}
-            title="Homepage" 
+           {/* Big tree in dropdown */}
+          {currentUser ? (
+            <div
+              onClick={() => {
+                navigate("/home");
+                setShowTreeDropdown(false);
+              }}
+              style={{ cursor: "pointer" }}
+              title="Homepage"
+            >
+              <TreeStatus totalProgress={currentUser.total_progress} size="big" />
+            </div>
+          ) : (
+            <img
+              src="/tree.svg"
+              alt="Progress Tree"
+              className="big-tree"
+              onClick={() => {
+                navigate("/home");
+                setShowTreeDropdown(false);
+              }}
+              style={{ cursor: "pointer" }}
+              title="Homepage"
             />
+          )}
+          
             {treeDropdownItems.map((item) => ( // easier to map through each dropdown item so that we can link it to the respective paths
               <button
                 key={item.path} // the key is path that we touch on which will grab us our value links

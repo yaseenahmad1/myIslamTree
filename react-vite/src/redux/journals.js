@@ -1,4 +1,5 @@
 import { csrfFetch } from "./csrf";
+import { getCurrentUser } from "./session";
 
 // -------------------------- ACTION TYPES --------------------------------------
 
@@ -88,6 +89,7 @@ export const thunkCreateJournal = (galleryId, journal) => async(dispatch) => {
         if (response.ok) {
             const data = await response.json();
             dispatch(createJournal(data));
+            dispatch(getCurrentUser());
             return data; 
         } else {
             const error = await response.json(); 
@@ -156,6 +158,7 @@ export const thunkDeleteJournal = (journalId) => async(dispatch) => {
         if (response.ok) {
             const data = await response.json(); 
             dispatch(deleteJournal(journalId)); 
+            dispatch(getCurrentUser());
             return data; 
         } else { 
             const error = await response.json(); 
@@ -172,7 +175,7 @@ export const thunkDeleteJournal = (journalId) => async(dispatch) => {
 const initialState = { // have initial state take in all these inner states
     allJournals: [], // all journals for the gallery or user 
     privateJournals: [], // private journals
-    currentJournal: null // the journal the user is viewing or editing currently
+    singleJournal: null // the journal the user is viewing or editing currently
 }
 
 // -------------------------- REDUCERS --------------------------------------------
@@ -183,7 +186,7 @@ export default function journalsReducer(state = initialState, action) {
     switch (action.type) {
 
         case GET_JOURNAL:
-            newState.currentJournal = { ...action.payload } // spreading out all the info in our new slice of state that occured in our thunk
+            newState.singleJournal = { ...action.payload } // spreading out all the info in our new slice of state that occured in our thunk
             return newState;
         
         case GET_JOURNALS:

@@ -1,20 +1,20 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import "./CreateGalleryForm.css"; // reuse create gallery CSS
+import "./EditJournalForm.css"; // reuse same CSS
 import SurahVerseSelector from "../SurahVerseSelector/SurahVerseSelector";
-import { thunkEditGallery, thunkGetGallery } from "../../redux/galleries";
+import { thunkEditJournal, thunkGetJournal } from "../../redux/journals";
 import { thunkFetchVerse, clearVerse } from "../../redux/verse";
 
-export default function EditGalleryForm() {
+export default function EditJournalForm() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { galleryId } = useParams();
+  const { journalId } = useParams();
 
-  const gallery = useSelector(state => state.galleries.singleGallery);
+  const journal = useSelector(state => state.journals.singleJournal); 
   const verseState = useSelector(state => state.verse);
 
-  const [loading, setLoading] = useState(true); // loading state
+  const [loading, setLoading] = useState(true);
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");
   const [surah, setSurah] = useState(null);
@@ -22,11 +22,10 @@ export default function EditGalleryForm() {
   const [description, setDescription] = useState("");
   const [errors, setErrors] = useState({});
 
-  // Fetch gallery on mount
   useEffect(() => {
     setLoading(true);
-    dispatch(thunkGetGallery(galleryId))
-      .then((res) => {
+    dispatch(thunkGetJournal(journalId))
+      .then(res => {
         if (res && res.surah && res.verse) {
           dispatch(thunkFetchVerse(res.surah, res.verse));
         }
@@ -34,27 +33,23 @@ export default function EditGalleryForm() {
       .finally(() => setLoading(false));
 
     return () => dispatch(clearVerse());
-  }, [dispatch, galleryId]);
+  }, [dispatch, journalId]);
 
   useEffect(() => {
-    if (gallery.id) {
-      setTitle(gallery.title || "");
-      setImage(gallery.image || "");
-      setSurah(gallery.surah || null);
-      setVerse(gallery.verse || null);
-      setDescription(gallery.description || "");
+    if (journal?.id) {
+      setTitle(journal.title || "");
+      setImage(journal.image || "");
+      setSurah(journal.surah || null);
+      setVerse(journal.verse || null);
+      setDescription(journal.description || "");
     }
-  }, [gallery]);
-
+  }, [journal]);
 
   const handleVerseChange = (newSurah, newVerse) => {
     setSurah(newSurah);
     setVerse(newVerse);
-    if (newSurah && newVerse) {
-      dispatch(thunkFetchVerse(newSurah, newVerse));
-    } else {
-      dispatch(clearVerse());
-    }
+    if (newSurah && newVerse) dispatch(thunkFetchVerse(newSurah, newVerse));
+    else dispatch(clearVerse());
   };
 
   const handleSubmit = async (e) => {
@@ -67,8 +62,8 @@ export default function EditGalleryForm() {
     setErrors(newErrors);
     if (Object.keys(newErrors).length > 0) return;
 
-    const updatedGallery = {
-      id: galleryId,
+    const updatedJournal = {
+      id: journalId,
       title,
       image,
       surah,
@@ -78,18 +73,17 @@ export default function EditGalleryForm() {
       description,
     };
 
-    const res = await dispatch(thunkEditGallery(updatedGallery));
+    const res = await dispatch(thunkEditJournal(updatedJournal));
     if (res.error) setErrors({ submit: res.error });
-    else navigate(`/galleries/${galleryId}`);
+    else navigate(`/journals/${journalId}`);
   };
 
-  if (loading) return <p>Loading gallery...</p>; // show loading while fetching
+  if (loading) return <p>Loading journal...</p>;
 
   return (
     <form className="create-gallery-form" onSubmit={handleSubmit}>
-      <h2>Edit Gallery</h2>
+      <h2>Edit Journal</h2>
 
-      {/* Submit errors */}
       {errors.submit && (
         <ul className="errors">
           {errors.submit.map((err, idx) => <li key={idx}>{err}</li>)}
@@ -98,23 +92,13 @@ export default function EditGalleryForm() {
 
       <label>
         Title
-        <input
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="Enter gallery title..."
-        />
+        <input value={title} onChange={e => setTitle(e.target.value)} placeholder="Enter journal title..." />
         {errors.title && <div className="error">{errors.title}</div>}
       </label>
 
       <label>
         Image URL
-        <input
-          type="text"
-          value={image}
-          onChange={(e) => setImage(e.target.value)}
-          placeholder="Enter image URL..."
-        />
+        <input value={image} onChange={e => setImage(e.target.value)} placeholder="Enter image URL..." />
         {errors.image && <div className="error">{errors.image}</div>}
       </label>
 
@@ -124,7 +108,6 @@ export default function EditGalleryForm() {
         {errors.surahVerse && <div className="error">{errors.surahVerse}</div>}
       </label>
 
-      {/* Verse preview */}
       {(verseState.arabic_text || verseState.english_text) && (
         <div className="verse-preview">
           <p className="arabic">{verseState.arabic_text}</p>
@@ -134,12 +117,7 @@ export default function EditGalleryForm() {
 
       <label>
         Description
-        <textarea
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          placeholder="Enter gallery description..."
-          rows={6}
-        />
+        <textarea value={description} onChange={e => setDescription(e.target.value)} placeholder="Enter journal description..." rows={6} />
         {errors.description && <div className="error">{errors.description}</div>}
       </label>
 
@@ -147,7 +125,3 @@ export default function EditGalleryForm() {
     </form>
   );
 }
-
-
-
-

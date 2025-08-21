@@ -1,7 +1,10 @@
 .current-user-galleries {
-    padding: 20px;
-    font-family: Arial, sans-serif;
-  }
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #fff; /* white background */
+  color: #333; /* optional to make text visible */
+  min-height: 100vh; /* ensure it fills page height */
+}
   
   .current-user-galleries h2 {
     font-size: 28px;

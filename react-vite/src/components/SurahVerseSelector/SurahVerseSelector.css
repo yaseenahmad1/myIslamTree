@@ -1,0 +1,17 @@
+.surah-verse-selector select {
+    font-family: 'Amiri', serif; /* set font */
+    font-size: 16px;
+    padding: 6px 10px;
+    margin-right: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #000;
+  }
+  
+  .surah-verse-selector select:focus {
+    outline: none;
+    border-color: #7c3aed; /* optional focus color */
+    box-shadow: 0 0 3px rgba(124, 58, 237, 0.5);
+  }
+  

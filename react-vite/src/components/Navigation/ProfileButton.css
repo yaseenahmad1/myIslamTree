@@ -37,6 +37,8 @@
   
   .profile-dropdown li {
     margin: 5px 0;
+    color: black;
+    font-weight: bold;
   }
   
   .profile-dropdown button {

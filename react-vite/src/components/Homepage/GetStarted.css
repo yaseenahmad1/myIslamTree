@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri&display=swap');
+
+.get-started-container {
+    width: 100%;
+    height: 100vh; /* full browser height */
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .get-started-content {
+    display: flex;
+    align-items: center; /* vertically center tree and text */
+    max-width: 1200px;
+    padding: 20px;
+    gap: 40px; /* space between image and text */
+  }
+  
+  .get-started-tree {
+    width: 700px; /* larger tree */
+    height: 700px;
+    margin-left: -150px;
+    margin-bottom: 100px;
+  }
+  
+  h2 {
+    font-size: 48px;        /* size of the text */
+    color: #333;            /* text color */
+    font-weight: bold;      /* bold text */
+    text-align: center;     /* center text horizontally */
+    margin-bottom: 40px;    /* space below the header */
+    font-family: 'Amiri', serif
+ }
+
+  .get-started-text {
+    color: black;
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 500px;
+    font-family: 'Amiri', serif;
+    font-weight:900;
+    margin-bottom: 40px;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertically center inside its box */
+  text-align: center; /* horizontally center text */
+  }
+
+  .get-started-text-verse {
+    margin-top: 20px;
+    color: #7a2f00;
+    font-weight: 900;
+  }
+  
+  

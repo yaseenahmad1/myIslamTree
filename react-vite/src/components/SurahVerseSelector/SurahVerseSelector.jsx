@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './SurahVerseSelector.css'
 
 const verseIntSelector = {
     1: 7,    // Surah Al-Fatiha
@@ -123,16 +124,16 @@ const SurahVerseSelector = ({ onChange }) => {
   const [selectedVerse, setSelectedVerse] = useState('');
 
   const handleSurahChange = (event) => {
-    const surah = event.target.value;
+    const surah = event.target.value ? parseInt(event.target.value) : null; // <-- convert to integer
     setSelectedSurah(surah);
     setSelectedVerse(''); // Reset verse when Surah changes
-    onChange(surah, ''); // Notify parent component
+    onChange(surah, null); // send integer (or null) to parent
   };
-
+  
   const handleVerseChange = (event) => {
-    const verse = event.target.value;
+    const verse = event.target.value ? parseInt(event.target.value) : null; // <-- convert to integer
     setSelectedVerse(verse);
-    onChange(selectedSurah, verse); // Notify parent component
+    onChange(selectedSurah, verse); // send integers to parent
   };
 
   const verseOptions = selectedSurah
@@ -140,7 +141,7 @@ const SurahVerseSelector = ({ onChange }) => {
     : [];
 
   return (
-    <div>
+    <div className='surah-verse-selector'>
       <select value={selectedSurah} onChange={handleSurahChange}>
         <option value="">Select Surah</option>
         {Object.keys(verseIntSelector).map((surah) => (

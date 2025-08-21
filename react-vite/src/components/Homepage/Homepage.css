@@ -1,0 +1,43 @@
+.homepage-container {
+    width: 100%;
+    overflow-x: hidden; /* prevent horizontal scroll */
+  }
+  
+  /* Tree Logo Box */
+  .tree-logo-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 20px; /* space above/below logo */
+    background-color: #111; /* optional background */
+    color: white;
+    text-align: center;
+  }
+  
+  .tree-logo-box .tree-logo {
+    width: 120px;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  /* Spiral Section */
+  .spiral-section {
+    margin-top: 200px; /* pushes spiral down from logo box */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px; /* or adjust to fit spiral */
+  }
+  
+  /* Features Section */
+  .features-section {
+    padding: 100px 20px;
+    background-color: #000; /* optional background */
+    color: white;
+    text-align: center;
+  }
+  
+  
+ 
+  

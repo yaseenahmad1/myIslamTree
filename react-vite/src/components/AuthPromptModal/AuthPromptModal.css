@@ -5,13 +5,14 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 1000;
+    z-index: 2000;
     display: flex;
     align-items: center;
     justify-content: center;
   }
   
   #modal-content {
+    color: black;
     background-color: white;         
     border-radius: 10px;
     padding: 20px 30px;
@@ -19,7 +20,7 @@
     max-width: 400px;
     width: 90%;
     position: relative;
-    z-index: 1001;
+    z-index: 2001;
     text-align: center;
     font-family: 'Arial', sans-serif;
   }

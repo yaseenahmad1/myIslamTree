@@ -68,6 +68,21 @@
     font-size: 13px;
     margin-top: 5px;
   }
-  
 
+.verse-preview p.arabic {
+    font-family: 'Scheherazade', serif;
+    font-size: 20px;
+    text-align: right;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    direction: rtl;
+    color: #111;
+  }
   
+.verse-preview p.english {
+    font-family: 'Amiri', sans-serif;
+    font-size: 16px;
+    text-align: left;
+    line-height: 1.5;
+    color: #333;
+  }
