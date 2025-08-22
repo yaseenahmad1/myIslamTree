@@ -7,7 +7,7 @@ const TreeStatus = ({ totalProgress, size = "small"}) => { // need a size prop t
   // Black tree if 0, gold trees 1-10
   const treeImage =
     progressLevel === 0
-      ? "/blackstatus.svg"
+      ? "/tree.svg"
       : `/goldstatus${progressLevel}.svg`;
 
   // Determine CSS class based on where the tree is displayed
