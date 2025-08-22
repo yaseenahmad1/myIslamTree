@@ -1,83 +1,117 @@
+/* Galleries header container */
+.galleries-header {
+  display: flex;
+  flex-direction: column;   /* stack title + button */
+  align-items: center;      /* center horizontally */
+  margin-bottom: 2rem;
+}
+
+/* Create button */
+.galleries-header button {
+  margin-top: 1rem;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+
+  background-color: #a24e12;   /* brown */
+  color: white;
+  transition: background-color 0.25s, transform 0.15s;
+}
+
+.galleries-header button:hover {
+  background-color: #046704;   /* green */
+  transform: translateY(-2px); /* subtle lift */
+}
+
+
+/* --- Galleries Page Container --- */
 .current-user-galleries {
   padding: 20px;
   font-family: Arial, sans-serif;
-  background-color: #fff; /* white background */
-  color: #333; /* optional to make text visible */
-  min-height: 100vh; /* ensure it fills page height */
+  background-color: #fff;
+  color: #333;
+  min-height: 100vh;
 }
-  
-  .current-user-galleries h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-    text-align: center;
-    color: #333;
-  }
-  
-  /* Galleries List */
-  .galleries-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-  }
-  
-  .gallery-card {
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 15px;
-    text-decoration: none;
-    color: #333;
-    transition: transform 0.2s, box-shadow 0.2s;
-    background-color: #fafafa;
-  }
-  
-  .gallery-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
-  }
-  
-  .gallery-title {
-    font-weight: bold;
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  
-  .gallery-description {
-    font-size: 16px;
-    color: #666;
-  }
-  
-  /* Empty State */
-  .no-galleries {
-    text-align: center;
-    margin-top: 50px;
-  }
-  
-  .no-galleries h3 {
-    font-size: 22px;
-    margin-bottom: 10px;
-    color: #555;
-  }
-  
-  .no-galleries p {
-    font-size: 16px;
-    margin-bottom: 20px;
-    color: #777;
-  }
-  
-  .no-galleries button {
-    padding: 12px 25px;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    background-color: rgb(0, 200, 100);
-    color: white;
-    transition: background-color 0.2s;
-  }
-  
-  .no-galleries button:hover {
-    background-color: rgb(0, 150, 75);
-  }
+
+.current-user-galleries h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+/* --- Galleries Grid --- */
+.galleries-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* --- Gallery Card --- */
+.gallery-card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #fafafa;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-align: center;
+}
+
+.gallery-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Title --- */
+.gallery-title {
+  font-family: 'Amiri', serif; 
+  font-weight: bold;
+  font-size: 28px;            
+  margin-bottom: 15px;
+  color: #222;
+}
+
+/* --- Actions (Edit/Delete buttons) --- */
+.gallery-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.gallery-actions button {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.15s;
+  min-width: 90px;
+}
+
+/* Edit button */
+.gallery-actions button:first-child {
+  background-color: #e6f0ff;
+  color: #0056b3;
+}
+.gallery-actions button:first-child:hover {
+  background-color: #cce0ff;
+  transform: translateY(-1px);
+}
+
+/* Delete button */
+.gallery-actions button:last-child {
+  background-color: #ffe6e6;
+  color: #cc0000;
+}
+.gallery-actions button:last-child:hover {
+  background-color: #ffcccc;
+  transform: translateY(-1px);
+}
+
   
   

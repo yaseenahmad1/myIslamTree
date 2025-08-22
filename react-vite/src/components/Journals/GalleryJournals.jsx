@@ -33,62 +33,75 @@ export default function GalleryJournals() {
   }, [dispatch, galleryId]);
 
   if (!journals.length) {
-    return <p>No journal entries yet for this gallery.</p>;
+    return <h3 className="no-journal-msg">No journal entries yet for this gallery.</h3>;
   }
 
   return (
     <div className="gallery-journals">
-      <h3>Journal Entries</h3>
-      <div className="journals-list">
-        {journals.map(journal => (
+      <h3>myReflectionJournals</h3>
+      <div className="journal-wrapper">
+        {journals.map((journal) => (
           <div 
             key={journal.id} 
             className="journal-card"
             onClick={() => navigate(`/journals/${journal.id}`)}
-            style={{ cursor: "pointer" }}
           >
-            <img src={journal.image} alt={journal.title} className="journal-image" />
+            <div className="journal-image">
+              <img src={journal.image} alt={journal.title} />
+            </div>
+  
             <div className="journal-content">
-              <h4>{journal.title}</h4>
-              <p><strong>Surah {journal.surah}, Verse {journal.verse}</strong></p>
-              <p className="arabic-text">{journal.arabic_text}</p>
-              <p className="english-text">{journal.english_text}</p>
-              <p>{journal.description}</p>
+              <div className="journal-title">
+                <h2>{journal.title}</h2>
+              </div>
   
-              {/* Privacy toggle button - only for the owner */}
-              {currentUser && currentUser.id === journal.user_id && (
-                <button
-                  className="privacy-toggle-btn"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleTogglePrivacy(journal);
-                  }}
-                  title={journal.is_private ? "Make Public" : "Make Private"}
-                >
-                  {journal.is_private ? <FaLock /> : <FaLockOpen />}
-                </button>
-              )}
-  
-              {/* Edit and Delete buttons for journal cards */}
-              {currentUser && currentUser.id === journal.user_id && (
-                <div className="journal-actions">
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      navigate(`/journals/${journal.id}/edit`);
-                    }}
-                  >
-                    Edit
-                  </button>
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setModalContent(<ConfirmDeleteJournalModal journalId={journal.id} />);
-                    }}
-                  >
-                    Delete
-                  </button>
+              <div className="verse-block">
+                <div className="arabic-text">
+                  <h3>{journal.arabic_text}</h3>
                 </div>
+                <div className="english-text">
+                  <h3>{journal.english_text}</h3>
+                </div>
+              </div>
+  
+              <div className="description">
+                <p>{journal.description}</p>
+              </div>
+  
+              <p><strong>Surah {journal.surah}, Verse {journal.verse}</strong></p>
+  
+              {currentUser && currentUser.id === journal.user_id && (
+                <>
+                  <button
+                    className="privacy-toggle-btn"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleTogglePrivacy(journal);
+                    }}
+                    title={journal.is_private ? "Make Public" : "Make Private"}
+                  >
+                    {journal.is_private ? <FaLock /> : <FaLockOpen />}
+                  </button>
+  
+                  <div className="journal-actions">
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        navigate(`/journals/${journal.id}/edit`);
+                      }}
+                    >
+                      Edit
+                    </button>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setModalContent(<ConfirmDeleteJournalModal journalId={journal.id} />);
+                      }}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </>
               )}
             </div>
           </div>

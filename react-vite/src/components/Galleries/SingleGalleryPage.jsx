@@ -39,7 +39,7 @@ export default function SingleGallery() {
     <>
       {/* Title */}
 
-        <h1 className="gallery-title">{gallery.title}</h1>
+        <h1 className="single-gallery-title">{gallery.title}</h1>
      
   
       {/* Full-width image */}
@@ -96,7 +96,7 @@ export default function SingleGallery() {
             title="Add a Journal"
             onClick={() => navigate(`/galleries/${galleryId}/journals/new`)}
           >
-            <FaPlusCircle size={28} />
+            <FaPlusCircle size={58} />
           </button>
         )}
   

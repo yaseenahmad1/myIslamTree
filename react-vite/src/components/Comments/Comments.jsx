@@ -101,8 +101,8 @@ function Comments({ galleryId }) {
                                     </div>
                                     {sessionUser && Number(sessionUser.id) === Number(comment.user_id) && (
                                         <div className="comment-actions">
-                                            <button onClick={() => startEditing(comment)}>Edit</button>
-                                            <button onClick={() => handleDeleteClick(comment)}>Delete</button>
+                                            <button className="edit-btn" onClick={() => startEditing(comment)}>Edit</button>
+                                            <button className="delete-btn" onClick={() => handleDeleteClick(comment)}>Delete</button>
                                         </div>
                                     )}
                                 </>
