@@ -81,7 +81,7 @@ function Navigation() {
               title="Homepage"
             />
           )}
-          
+            <div className="button-adj">
             {treeDropdownItems.map((item) => ( // easier to map through each dropdown item so that we can link it to the respective paths
               <button
                 key={item.path} // the key is path that we touch on which will grab us our value links
@@ -91,6 +91,7 @@ function Navigation() {
               {item.label}
               </button>
             ))}
+            </div>
           </div>
         )}
       </div>

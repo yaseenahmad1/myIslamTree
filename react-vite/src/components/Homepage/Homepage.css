@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Scheherazade+New:wght@400;700&display=swap');
+
 .homepage-container {
     width: 100%;
     overflow-x: hidden; /* prevent horizontal scroll */
@@ -20,16 +23,70 @@
     height: auto;
     margin-bottom: 20px;
   }
+
+  .spiral-title-strip {
+    background: black;
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .spiral-title-strip h1 {
+    margin: 0;
+    font-size: 100px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 1;
+    letter-spacing: 4px;
+  }
   
   /* Spiral Section */
   .spiral-section {
-    margin-top: 200px; /* pushes spiral down from logo box */
+    margin-top: 160px; /* pushes spiral down from logo box */
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 600px; /* or adjust to fit spiral */
+    height: 400px; /* or adjust to fit spiral */
+  }
+
+  .verse-wrapper {
+    background-color: white;
+    margin-top: 190px; /* don't touch */
+    height: 300px;
   }
   
+  /* Both texts overlap each other */
+  .verse {
+    position: absolute;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .verse.arabic h2 {
+    margin-top: 40px;
+    font-family: 'Scheherazade New', serif;
+    font-size: 5rem;
+    opacity: 1;
+  }
+  
+  .verse.english h2 {
+    font-family: 'Amiri', serif;
+    font-size: 1.5rem;
+    opacity: 0;
+  }
+  
+  /* Hover effect */
+  .verse-wrapper:hover .arabic h2 {
+    opacity: 0;
+    transition: .6s;
+  }
+  
+  .verse-wrapper:hover .english h2 {
+    margin-top: 100px;
+    font-size: 30px;
+    opacity: 1;
+    transition: .9s;
+  }
   /* Features Section */
   .features-section {
     padding: 100px 20px;
