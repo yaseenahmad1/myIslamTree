@@ -27,9 +27,9 @@ sqlalchemy = "==1.4.46"
 werkzeug = "==2.2.2"
 wtforms = "==3.0.1"
 zipp = "==3.17.0"
-
-[dev-packages]
 requests = "*"
 
 [requires]
 python_version = "3.9"
+
+[dev-packages]
