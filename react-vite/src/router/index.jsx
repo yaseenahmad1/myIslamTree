@@ -12,6 +12,8 @@ import CreateJournalForm from '../components/Journals/CreateJournalForm';
 import PrivateJournals from '../components/Journals/PrivateJournals';
 import SingleJournalPage from '../components/Journals/SingleJournalPage';
 import EditJournalForm from '../components/Journals/EditJournalForm';
+import UserProfile from '../components/UserProfile/UserProfile';
+import FollowsPage from  '../components/FollowsPage/FollowsPage'
 
 export const router = createBrowserRouter([
   {
@@ -57,6 +59,14 @@ export const router = createBrowserRouter([
         path: "/journals/:journalId/edit",
         element: <EditJournalForm />,
       },
+      {
+        path: "/users/:userId",
+        element: <UserProfile />
+      },
+      {
+        path: "my-corrhizae",
+        element: <FollowsPage />
+      }, 
       {
         path: "login",
         element: <LoginFormPage />,

@@ -5,6 +5,8 @@ import { thunkGetGallery } from "../../redux/galleries";
 import { thunkFetchVerse } from "../../redux/verse";
 import { FaPlusCircle } from "react-icons/fa";
 import GalleryJournals from "../Journals/GalleryJournals";
+import Comments from "../../components/Comments/Comments"
+import LikeButton from "../../components/LikeButton/LikeButton";
 
 export default function SingleGallery() {
   const { galleryId } = useParams();
@@ -67,6 +69,12 @@ export default function SingleGallery() {
           <FaPlusCircle size={28} />
         </button>
       )}
+
+      {/* Comments section - pass the galleryId */}
+      <div className="interactions-section" style={{ display: "flex", gap: "20px", marginTop: "30px" }}>
+        <LikeButton galleryId={galleryId} />
+        <Comments galleryId={galleryId} />
+      </div>
       </div>
   );
 }

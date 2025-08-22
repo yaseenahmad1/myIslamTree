@@ -70,7 +70,7 @@ export const thunkGetUserGalleries = (userId) => async(dispatch) => { // we pass
 
         if (response.ok) { 
             const data = await response.json(); 
-            dispatch(getUserGalleries(data)); 
+            dispatch(getUserGalleries(data.galleries)); // need to pass the array to data
             return data;
         } else { 
             // errors that come from the server 

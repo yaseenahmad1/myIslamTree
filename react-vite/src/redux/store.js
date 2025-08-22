@@ -12,6 +12,7 @@ import verseReducer from "./verse";
 import commentsReducer from "./comments";
 import likesReducer from "./likes";
 import followsReducer from "./follows";
+import usersReducer from "./users";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
@@ -20,7 +21,8 @@ const rootReducer = combineReducers({
   verse: verseReducer,
   comments: commentsReducer,
   likes: likesReducer,
-  follows: followsReducer
+  follows: followsReducer,
+  users: usersReducer
 });
 
 let enhancer;

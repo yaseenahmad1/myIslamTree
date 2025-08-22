@@ -21,7 +21,7 @@ function Navigation() {
   const treeDropdownItems = [
     { label: "myJournalGalleries", path: "/my-galleries" },
     { label: "myReflectionJournals", path: "/my-private-journals" },
-    { label: "myCorrhizae", path: "/my-friends" },
+    { label: "myCorrhizae", path: "/my-corrhizae" },
   ];
   
   const handleDropdownClick = (path) => {

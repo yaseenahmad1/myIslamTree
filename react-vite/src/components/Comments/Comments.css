@@ -1,0 +1,83 @@
+.comments-section {
+    margin-top: 1rem;
+    border-top: 1px solid #ddd;
+    padding-top: 0.5rem;
+    font-family: Arial, sans-serif;
+  }
+  
+  .comments-header {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .comments-header.toggle {
+    cursor: pointer;
+    color: #0077cc;
+  }
+  
+  .comments-header.toggle:hover {
+    text-decoration: underline;
+  }
+  
+  .comments-list {
+    margin: 0.5rem 0;
+    padding-left: 0.5rem;
+    border-left: 2px solid #eee;
+    max-height: 250px;
+    overflow-y: auto;
+  }
+  
+  .comment {
+    background: #f9f9f9;
+    margin-bottom: 0.5rem;
+    padding: 0.6rem;
+    border-radius: 6px;
+    color: black;
+  }
+  
+  .comment-meta {
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 0.3rem;
+  }
+  
+  .comment-actions {
+    margin-top: 0.4rem;
+  }
+  
+  .comment-actions button {
+    margin-right: 0.5rem;
+    font-size: 0.8rem;
+  }
+  
+  .comment-form {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .comment-form textarea {
+    resize: vertical;
+    min-height: 60px;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  
+  .comment-form button {
+    align-self: flex-end;
+    padding: 0.4rem 0.8rem;
+    background: #0077cc;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .comment-form button:hover {
+    background: #005fa3;
+  }
+  
+  

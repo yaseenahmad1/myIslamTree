@@ -18,7 +18,7 @@ const deleteComment = (commentId) => ({ type: DELETE_COMMENT, payload: commentId
 // -------------------------- THUNKS --------------------------------------
 
 // GET all comments for a gallery
-export const getCommentsByPostId = (galleryId) => async (dispatch) => {
+export const getCommentsByGalleryId = (galleryId) => async (dispatch) => {
 
     try { 
     const res = await csrfFetch(`/api/galleries/${galleryId}/comments`);
