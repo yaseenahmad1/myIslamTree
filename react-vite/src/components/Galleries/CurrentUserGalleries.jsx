@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useModal } from "../../context/Modal";
 import { useDispatch, useSelector } from "react-redux";
-import { thunkGetCurrentUserGalleries, thunkDeleteGallery } from "../../redux/galleries";
+import { thunkGetCurrentUserGalleries } from "../../redux/galleries";
 import { NavLink, useNavigate } from "react-router-dom";
 import "./CurrentUserGalleries.css";
 import ConfirmDeleteGalleryModal from "./ConfirmDeleteGalleryModal";
@@ -16,11 +16,11 @@ function CurrentUserGalleries() {
     dispatch(thunkGetCurrentUserGalleries());
   }, [dispatch]);
 
-  const handleDelete = (galleryId) => {
-    if (window.confirm("Are you sure you want to delete this gallery?")) {
-      dispatch(thunkDeleteGallery(galleryId));
-    }
-  };
+  // const handleDelete = (galleryId) => {
+  //   if (window.confirm("Are you sure you want to delete this gallery?")) {
+  //     dispatch(thunkDeleteGallery(galleryId));
+  //   }
+  // };
 
   const hasGalleries = Object.values(galleries).length > 0;
 

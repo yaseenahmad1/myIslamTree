@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useModal } from "../../context/Modal";
@@ -15,8 +15,8 @@ function Navigation() {
   const navigate = useNavigate();
   const [showTreeDropdown, setShowTreeDropdown] = useState(false);
 
-  const openLoginModal = () => setModalContent(<LoginFormModal />);
-  const openSignupModal = () => setModalContent(<SignupFormModal />);
+  // const openLoginModal = () => setModalContent(<LoginFormModal />);
+  // const openSignupModal = () => setModalContent(<SignupFormModal />);
 
   const treeDropdownItems = [
     { label: "myJournalGalleries", path: "/my-galleries" },

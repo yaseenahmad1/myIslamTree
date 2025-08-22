@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import "./SpiralVisual.css"; 
 
 
@@ -30,8 +30,8 @@ const SpiralVisual = () => {
         <path id="spiralPath9" d="M250,250 C -998,900 -150,-980 -980,50 S 380,460 250,450" /> 
 
         <filter id="glow" x="-50%" y="-50%" width="200%" height="200%" >
-            <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="gold" flood-opacity="0.8"/>
-            <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="orange" flood-opacity="0.5"/>
+            <feDropShadow dx="0" dy="0" stdDeviation="3" floodColor="gold" floodOpacity="0.8"/>
+            <feDropShadow dx="0" dy="0" stdDeviation="6" floodColor="orange" floodOpacity="0.5"/>
           </filter>
       </defs>
 

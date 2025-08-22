@@ -1,15 +1,15 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, NavLink, useNavigate } from "react-router-dom";
+import { useParams, NavLink } from "react-router-dom";
 import { thunkGetSingleUser, getSingleUser } from "../../redux/users"; // need to import the action creator to clear our state if we visit another one
 import { thunkGetUserGalleries } from "../../redux/galleries";
-import { thunkGetAllJournals } from "../../redux/journals";
+// import { thunkGetAllJournals } from "../../redux/journals";
 import "./UserProfile.css";
 import TreeStatus from "../ProgressTree/ProgressTree";
 
 export default function UserProfile() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const { userId } = useParams();
 
   const singleUser = useSelector(state => state.users.singleUser);
@@ -34,7 +34,7 @@ export default function UserProfile() {
         <>
           {/* Header with username and progress tree */}
           <div className="profile-header">
-            <h2>{singleUser.username}'s Profile</h2>
+            <h2>{singleUser.username}`&apos;` Profile</h2>
             <TreeStatus totalProgress={singleUser.total_progress} size="big" />
           </div>
 

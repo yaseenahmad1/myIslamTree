@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FaUserCircle } from 'react-icons/fa';
 import { thunkLogout } from "../../redux/session";
-import { useModal } from "../../context/Modal";
+// import { useModal } from "../../context/Modal";
 import OpenModalMenuItem from "./OpenModalMenuItem";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
@@ -13,7 +13,7 @@ function ProfileButton() {
   const [showMenu, setShowMenu] = useState(false);
   const user = useSelector((store) => store.session.user);
   const dropdownRef = useRef();
-  const { setModalContent } = useModal(); 
+  // const { setModalContent } = useModal(); 
 
   const toggleMenu = (e) => {
     e.stopPropagation(); // Keep from bubbling up to document and triggering closeMenu

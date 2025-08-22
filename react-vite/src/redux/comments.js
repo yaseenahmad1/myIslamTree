@@ -91,18 +91,19 @@ export default function commentsReducer(state = initialState, action) {
     // switch (action.type) will check the type of action being dispatched
     switch (action.type) {
         // if the action type is load_comments 
-        case LOAD_COMMENTS:
-            const all = {}; // we create an empty object 
+        case LOAD_COMMENTS: {
+            const all = {}; // changed empty object to empty array instead
             action.payload.forEach((comment) => {all[comment.id] = comment}) // storing them in a new object with id number as key 
             return all; // then return that object easier for retrieval 
-            case ADD_COMMENT: // add a new id 
-            case UPDATE_COMMENT: // replace an existing id 
-                newState[action.payload.id] = action.payload; // both add comment and update comment do the same thing 
-                return newState; 
-            case DELETE_COMMENT:
-                delete newState[action.payload]; 
-                return newState;
-            default: 
+        }
+        case ADD_COMMENT: // add a new id 
+        case UPDATE_COMMENT: // replace an existing id 
+            newState[action.payload.id] = action.payload; // both add comment and update comment do the same thing 
+            return newState; 
+        case DELETE_COMMENT:
+            delete newState[action.payload]; 
+            return newState;
+        default: 
             return state;
     }
 }

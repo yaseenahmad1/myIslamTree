@@ -72,10 +72,11 @@ const initialState = {};
 export default function likesReducer(state = initialState, action) {
     const newState = { ...state };
     switch (action.type) {
-        case LOAD_LIKES:
-            const all = {};
+        case LOAD_LIKES: {
+            const all = []; // empty object to array
             action.payload.forEach(like => { all[like.id] = like });
             return all;
+        }
         case ADD_LIKE:
             newState[action.payload.id] = action.payload;
             return newState;

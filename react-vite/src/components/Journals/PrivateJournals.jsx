@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { thunkGetPrivateJournals } from "../../redux/journals";
-import { FaLock, FaLockOpen } from "react-icons/fa";
+import { FaLock } from "react-icons/fa";
 import { thunkEditPrivacy } from "../../redux/journals";
 import { useModal } from "../../context/Modal";
 import ConfirmDeleteJournalModal from "./ConfirmDeleteJournal";

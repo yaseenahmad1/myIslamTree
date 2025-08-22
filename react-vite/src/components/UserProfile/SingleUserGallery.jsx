@@ -41,7 +41,7 @@ export default function SingleUserGallery() {
       {/* Header with user info */}
       {singleUser && (
         <div className="gallery-user-header">
-          <h2>{singleUser.username}'s Gallery</h2>
+          <h2>{singleUser.username}`&apos;` Gallery</h2>
           <TreeStatus totalProgress={singleUser.total_progress} size="medium" />
         </div>
       )}

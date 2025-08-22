@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import SpiralVisual from "./SpiralVisual"; // make sure path is correct
 import GetStarted from "./GetStarted";
 import "./Homepage.css"; // optional for homepage-specific styles

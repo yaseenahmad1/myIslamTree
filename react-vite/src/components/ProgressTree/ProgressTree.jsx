@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 
 const TreeStatus = ({ totalProgress, size = "small"}) => { // need a size prop to pass so it can refelct in my navigatio
   // Cap progress so it doesn’t go beyond your last image
