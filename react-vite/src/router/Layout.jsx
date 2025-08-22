@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { ModalProvider, Modal } from "../context/Modal";
 import { thunkAuthenticate } from "../redux/session";
 import Navigation from "../components/Navigation/Navigation";
+import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
 
 export default function Layout() {
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ export default function Layout() {
   return (
     <>
       <ModalProvider>
+        <ScrollToTop />
         <Navigation />
         {isLoaded && <Outlet />}
         <Modal />

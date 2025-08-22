@@ -10,6 +10,10 @@
   border-bottom: 3px solid #7a2f00;
   position: relative;
   z-index: 1000;
+
+  position: sticky;  
+  top: 0;
+  z-index: 1000;
 }
 
 /* Left tree logo */
@@ -30,12 +34,11 @@
 /* Dropdown when hovering over tree logo */
 .tree-dropdown {
   position: absolute;
-  top: 60px; /* slightly below the small tree logo */
+  top: 60px; 
   left: 0;
   background-color: white;
   border: 1px solid #ccc;
   margin-left: 10px;
-  padding: 15px;
   border-radius: 2px;
   display: flex;
   flex-direction: column;
@@ -51,18 +54,48 @@
   margin-bottom: 10px;
 }
 
-/* Dropdown links */
-.dropdown-link {
+/* .dropdown-link {
   text-decoration: none;
   color: black;
-  margin: 5px 0;
+  margin-bottom: 10px;
   font-family: 'Amiri', serif;
   font-weight: bold;
   transition: color 0.2s;
+} */
+
+.button-adj {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;               /* space between buttons */
+  width: 100%;            /* ensures buttons can stretch full width */
+}
+.button-adj .dropdown-link {
+  width: 190px;            
+  padding: 5px 14px;
+  border: none;
+  border-radius: 20px;
+  background-color: #5e2300;
+  color: white;
+  font-family: 'Amiri', serif;
+  text-align: center;     /* or 'left' if you prefer */
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+/* Hover/active styles */
+.button-adj .dropdown-link:hover {
+  background-color: white;
+  color: #7a2f00;
+  border: 2px solid #7a2f00; 
+}
+
+.button-adj .dropdown-link:active {
+  background-color: #7a2f00;  /* slightly darker */
+  color: white;
 }
 
 .dropdown-link:hover {
-  color: #7a2f00;
+  color: white;
 }
 
 /* Right profile wrapper */
@@ -78,7 +111,6 @@
   right: 0;
   background-color: white;
   border: 1px solid #ccc;
-  border-radius: 8px;
   padding: 10px;
   list-style: none;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);

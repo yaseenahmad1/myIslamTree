@@ -42,9 +42,8 @@ function CurrentUserGalleries() {
         <div className="galleries-list">
           {Object.values(galleries).map(gallery => (
             <div key={gallery.id} className="gallery-card">
-              <NavLink to={`/galleries/${gallery.id}`}>
+              <NavLink to={`/galleries/${gallery.id}`} className="gallery-link">
                 <div className="gallery-title">{gallery.title}</div>
-                <div className="gallery-description">{gallery.description}</div>
               </NavLink>
               <div className="gallery-actions">
                 <button onClick={() => navigate(`/galleries/${gallery.id}/edit`)}>

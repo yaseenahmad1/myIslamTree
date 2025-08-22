@@ -3,12 +3,13 @@
     margin: 40px auto;
     padding: 20px;
     font-family: 'Amiri', serif;
-    color: #111;
+    color: #161515;
   }
   
   .single-journal-page h2 {
-    font-size: 28px;
+    font-size: 88px;
     font-weight: bold;
+    color: white;
     margin-bottom: 20px;
     text-align: center;
   }
@@ -42,7 +43,7 @@
   
   .english-text {
     font-size: 16px;
-    color: #333;
+    color: white;
     margin: 5px 0;
   }
   
@@ -50,6 +51,8 @@
     font-size: 16px;
     line-height: 1.6;
     margin-bottom: 25px;
+    text-align: center;
+    color: white;
   }
   
   .journal-actions {

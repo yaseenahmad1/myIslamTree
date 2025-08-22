@@ -1,55 +1,104 @@
-/* ProfileButton.css */
+@import url("https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;600;700&display=swap");
+
+
+/* Make the dropdown wider */
+.profile-dropdown {
+  position: absolute;
+  top: 50px;              /* below button */
+  right: 0;
+  background-color: white;
+  border-radius: 10px;
+  padding: 8px;           /* tighter outer padding */
+  list-style: none;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  font-weight: 1;
+  z-index: 1000;
+
+  min-width: 260px;       /* 👈 wider menu */
+}
+
+/* Reset default li gaps; we’ll handle spacing via button padding */
+.profile-dropdown li {
+  margin: 0;
+  color: black;
+  font-weight: 1;
+}
+
+/* Non-clickable meta lines (username/email) – keep them readable */
+.profile-dropdown li:first-child,
+.profile-dropdown li:nth-child(2) {
+  padding: 10px 12px;
+  font-weight: 600;
+  cursor: default;
+}
+
+/* Full-width actions: Log In / Sign Up / Log Out */
+.profile-dropdown li button,
+.profile-dropdown li a {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 2px solid #7a2f00;   /* brown border */
+  background-color: #7a2f00;   /* 👈 brown background */
+  color: white;                /* 👈 white text */
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 1;
+  transition: background 160ms ease, color 160ms ease, transform 40ms ease;
+}
+
+/* Hover + active feedback */
+.profile-dropdown li button:hover,
+.profile-dropdown li a:hover {
+  background-color: white;         
+  color: #7a2f00;                   
+  border: 2px solid #7a2f00;             
+}
+
+.profile-dropdown li button:active,
+.profile-dropdown li a:active {
+  background-color: #7a2f00;        /* brown background */
+  color: white;
+}
+
+/* Optional: add a subtle divider between meta and actions */
+.profile-dropdown li + li + li { /* third item onward (first action) */
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px solid #eee;
+}
+
+/* Profile trigger button stays the same, but you can fine-tune hit area */
 .profile-button {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: black;
-    color: white;
-    font-weight: bold;
-    font-family: 'Amiri', serif; /* same as other dropdown */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    border: none;
-  }
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #7a2f00;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+}
 
-  .profile-initial {
+/* Initial letter size/position */
+.profile-initial {
+  font-size: 25px;
+  margin-left: 2px;
+  font-family:'Times New Roman', Times, serif;
+  font-weight: 1;
+}
 
-    font-size: 25px;
-    margin-top: 3px;
-    margin-left: 2px;
- 
-  }
-  
   .profile-dropdown {
-    position: absolute;
-    top: 50px; /* below button */
-    right: 0;
-    background-color: white;
-    border-radius: 8px;
-    padding: 10px;
-    list-style: none;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    font-family: 'Amiri', serif;
-    z-index: 1000;
+    margin-right: 5px;
+    max-width: 200px;
+    min-width: 200px;
+    font-size: 15px;
   }
-  
-  .profile-dropdown li {
-    margin: 5px 0;
-    color: black;
-    font-weight: bold;
-  }
-  
-  .profile-dropdown button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: black;
-    font-weight: bold;
-  }
-  
-  .profile-dropdown button:hover {
-    color: rgb(64,184,255);
-  }
+
+
   

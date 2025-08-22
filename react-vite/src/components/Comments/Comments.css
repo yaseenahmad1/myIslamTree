@@ -1,9 +1,14 @@
 .comments-section {
-    margin-top: 1rem;
-    border-top: 1px solid #ddd;
+    margin-right: 20px;
+    border: 1px solid #ddd;
     padding-top: 0.5rem;
     font-family: Arial, sans-serif;
-  }
+
+    width: 100%;
+
+    background-color: white;
+    border-radius: 12px;
+ }
   
   .comments-header {
     font-size: 1.1rem;
@@ -22,8 +27,8 @@
   
   .comments-list {
     margin: 0.5rem 0;
-    padding-left: 0.5rem;
-    border-left: 2px solid #eee;
+    padding: 8px;
+    border: 2px solid #000000;
     max-height: 250px;
     overflow-y: auto;
   }
@@ -44,11 +49,41 @@
   
   .comment-actions {
     margin-top: 0.4rem;
+    display: flex;
+    gap: 0.5rem;
   }
   
   .comment-actions button {
     margin-right: 0.5rem;
     font-size: 0.8rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.15s;
+  }
+
+  /* Edit button*/
+  .comment-actions button.edit-btn {
+    padding: 8px 25px;
+    background-color: #e6f0ff;
+    color: #0056b3;
+  }
+
+  .comment-actions button.edit-btn:hover {
+    background-color: #cce0ff;
+  }
+
+  /* Delete button*/
+  .comment-actions button.delete-btn {
+    padding: 8px 25px;
+    background-color: #dfb2b2;
+    color: #cc0000;
+  }
+
+  .comment-actions button.delete-btn:hover {
+    background-color: #ffcccc;
+    transform: translateY(-1px);
   }
   
   .comment-form {
@@ -67,8 +102,11 @@
   }
   
   .comment-form button {
+    height: 50px;
+    width: 200px;
     align-self: flex-end;
-    padding: 0.4rem 0.8rem;
+    padding: 5px;
+    margin: 19px;
     background: #0077cc;
     color: white;
     border: none;

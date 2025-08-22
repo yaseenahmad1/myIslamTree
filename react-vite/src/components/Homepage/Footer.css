@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap");
+
+.site-footer {
+  background: #fff;
+  color: #111;
+  min-height: 160px;            
+  padding: 36px 28px;           
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;                   
+  border-top: 2px solid #eee;
+  box-sizing: border-box; 
+}
+
+.message {
+    font-family: 'Amiri', serif;
+    font-weight: 1;
+}
+
+/* Left side: text stacked above button */
+.footer-left {
+  display: flex;
+  flex-direction: column;       
+  align-items: flex-start;       
+  gap: 14px;                     
+}
+
+/* Make texts larger and styled */
+.site-footer .message p,
+.site-footer .welcome-msg {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+/* JOIN button */
+.join-btn {
+  width: 100%;
+  padding: 14px 22px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  background: #8B4513;         
+  color: #fff;
+  cursor: pointer;
+  transition: background .25s ease, transform .05s ease;
+  font-family: 'Amiri', serif;
+}
+.join-btn:hover { background: #1f6f4a; }  
+.join-btn:active { transform: translateY(1px); }
+
+/* Divider */
+.footer-divider {
+  width: 2px;
+  align-self: stretch;
+  background: #cfcfcf;
+  opacity: 0.9;
+  margin-left: 200px;
+  margin-right: 100px;
+}
+
+/* Right side (contact info) */
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+
+.footer-right h4 {
+  margin: 0 0 4px 0;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.footer-right a {
+  color: #8B4513;
+  text-decoration: none;
+}
+.footer-right a:hover {
+  color: #1f6f4a;
+  text-decoration: underline;
+}
+
+
+
+  
+
+  
+  
+
+  
+  
+  
