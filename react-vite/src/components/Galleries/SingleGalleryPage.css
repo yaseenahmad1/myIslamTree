@@ -62,6 +62,7 @@
 }
 
 .verse-card {
+  color: black; 
   width: min(800px, 100%);
   text-align: center;
   padding: 1rem 1.25rem;
